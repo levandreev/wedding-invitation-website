@@ -44,20 +44,20 @@ export function OurStory() {
               ) : (
                 <>
                   <p>
-                    V říjnu 2022 jsme se potkali v útulné kavárně Louvre v Praze. Od prvních minut nám spolu bylo lehko
-                    a veselo — smáli jsme se, vtipkovali a povídali si až do zavírací hodiny, jako bychom se znali celý
-                    život.
+                    Před pár lety na podzim jsme se poprvé potkali v útulné kavárně Café Louvre v Praze. Už od prvních
+                    minut to bylo lehké a přirozené — smáli jsme se, vtipkovali a povídali si až do zavíračky, jako
+                    bychom k sobě od první chvíle samozřejmě patřili.
                   </p>
                   <p>
-                    Od té doby byl každý společný den plný radosti a tepla. Cestovali jsme, objevovali nová města,
-                    přeletěli přes oceán a prošli nejdelší visutý most na světě. Jezdili jsme na horských dráhách,
-                    smáli se do slz, společně jsme sledovali oblíbené filmy, snili a podporovali se navzájem v těžkých
-                    chvílích. Společně jsme fandili oblíbenému jezdci Formule 1, zpívali oblíbené písničky na
-                    koncertech světových hvězd a proměňovali obyčejné dny v jedinečné vzpomínky.
+                    Od té chvíle byl každý den spolu naplněný radostí a blízkostí. Cestovali jsme, objevovali nová
+                    města, přeletěli oceán, prošli se po nejdelším visutém mostě na světě, zažili adrenalin na horských
+                    dráhách i klidné večery u oblíbených filmů. Smáli jsme se až k slzám, snili o budoucnosti a drželi
+                    při sobě i v těžších chvílích. Společně jsme fandili našemu oblíbenému jezdci Formule 1, zpívali
+                    písničky na koncertech světových hvězd a z obyčejných dnů dělali ty, na které se nezapomíná.
                   </p>
                   <p>
-                    Dnes víme jistě: všechno je lepší, když jsme spolu. A už brzy začne nová kapitola našeho života
-                    a budeme šťastní, že ji můžeme sdílet s rodinou a přáteli.
+                    Dnes víme s jistotou, že všechno je krásnější, když jsme spolu. A už brzy začne nová kapitola
+                    našeho života — kapitola, kterou budeme s radostí sdílet s rodinou a přáteli.
                   </p>
                 </>
               )}
