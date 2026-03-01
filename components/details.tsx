@@ -30,7 +30,7 @@ export function Details() {
           <div className="border border-border/50 bg-card overflow-hidden flex flex-col">
             <div className="p-8 md:p-12 flex-1 flex flex-col">
               <h3 className="text-2xl md:text-3xl font-serif font-light text-foreground mb-8 md:mb-10">
-                {t ? "Церемония" : "Obřad"}
+                {t ? "Церемония бракосочетания" : "Obřad"}
               </h3>
 
               <div className="space-y-6 flex-1">
