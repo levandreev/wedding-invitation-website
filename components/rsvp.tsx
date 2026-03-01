@@ -41,9 +41,9 @@ export function RSVP() {
         <p className="text-center text-primary font-sans font-medium mb-3 md:mb-4 text-sm md:text-base">
           {t ? "Просим подтвердить участие до 1 мая 2026" : "Prosíme o potvrzení účasti do 1. května 2026"}
         </p>
-        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-xs md:text-sm leading-relaxed font-sans font-light max-w-lg mx-auto px-2 whitespace-nowrap">
+        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-xs md:text-sm leading-relaxed font-sans font-light max-w-lg mx-auto px-2">
           {t
-            ? "В случае каких-либо изменений просим сообщить нам об этом как можно раньше."
+            ? "Мы будем рады видеть вас на любой части нашего праздника. Если у вас получится присоединиться только к фуршету или ваши планы изменятся, пожалуйста, дайте нам знать заранее — нам это очень поможет в организации."
             : "V případě jakýchkoli změn nás prosím informujte co nejdříve."}
         </p>
 
