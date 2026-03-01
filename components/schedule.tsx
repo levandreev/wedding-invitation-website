@@ -44,9 +44,6 @@ export function Schedule() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <p className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-muted-foreground text-center mb-3 md:mb-4">
-          {t ? "Тайминг" : "Časový harmonogram"}
-        </p>
         <h2 className="text-4xl md:text-7xl font-serif font-light text-center text-foreground mb-3 md:mb-4 tracking-tight">
           {t ? "Расписание дня" : "Program dne"}
         </h2>
