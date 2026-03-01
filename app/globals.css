@@ -116,6 +116,28 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-hint {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -125,5 +147,14 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fade-in-up 0.7s ease-out both;
+  }
+  .animate-scroll-hint {
+    animation: scroll-hint 2s ease-in-out infinite;
   }
 }

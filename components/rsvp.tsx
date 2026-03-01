@@ -2,11 +2,14 @@
 
 import type React from "react"
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { useAnimateOnScroll } from "@/hooks/use-animate-on-scroll"
+import { useLang } from "@/components/language-provider"
 
 export function RSVP() {
+  const { lang } = useLang()
+  const { ref, isVisible } = useAnimateOnScroll(0.1)
+  const t = lang === "ru"
+
   const [formData, setFormData] = useState({
     name: "",
     guests: "1",
@@ -17,114 +20,116 @@ export function RSVP() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("RSVP submitted:", formData)
-    alert("Спасибо за подтверждение! Мы ждём вас на празднике.")
+    alert(t ? "Спасибо за подтверждение! Мы ждём вас на празднике." : "Děkujeme za potvrzení! Těšíme se na vás na oslavě.")
   }
 
   return (
-    <section className="py-16 md:py-28 px-4 md:px-6 bg-accent/20">
-      <div className="max-w-xl mx-auto">
+    <section id="rsvp" className="py-24 md:py-40 px-4 md:px-6 bg-background">
+      <div
+        ref={ref}
+        className={`max-w-xl mx-auto transition-all duration-700 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <p className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-muted-foreground text-center mb-3 md:mb-4">
-          Ждём ответа
+          {t ? "Ждём ответа" : "Čekáme na odpověď"}
         </p>
-        <h2 className="text-3xl md:text-6xl font-serif font-light text-center text-foreground mb-6 md:mb-8 tracking-tight">
-          Подтверждение участия
+        <h2 className="text-3xl sm:text-4xl md:text-7xl font-serif font-light text-center text-foreground mb-8 md:mb-10 tracking-tight whitespace-nowrap">
+          {t ? "Подтверждение участия" : "Potvrzení účasti"}
         </h2>
 
-        <p className="text-center text-muted-foreground mb-3 md:mb-4 text-sm md:text-base leading-relaxed font-sans font-light px-2">
-          Мы будем рады видеть на празднике не только вас, но и ваших деток.
-        </p>
         <p className="text-center text-primary font-sans font-medium mb-3 md:mb-4 text-sm md:text-base">
-          Просим подтвердить участие до 1 мая 2026
+          {t ? "Просим подтвердить участие до 1 мая 2026" : "Prosíme o potvrzení účasti do 1. května 2026"}
         </p>
-        <p className="text-center text-muted-foreground mb-10 md:mb-14 text-xs md:text-sm leading-relaxed font-sans font-light max-w-md mx-auto px-2">
-          В случае каких-либо изменений просим сообщить нам об этом как можно раньше. Укажите имена детей в комментарии.
+        <p className="text-center text-muted-foreground mb-12 md:mb-16 text-xs md:text-sm leading-relaxed font-sans font-light max-w-md mx-auto px-2">
+          {t
+            ? "В случае каких-либо изменений просим сообщить нам об этом как можно раньше."
+            : "V případě jakýchkoli změn nás prosím informujte co nejdříve."}
         </p>
 
-        <div className="rounded-2xl border border-border/50 bg-card p-5 md:p-10 shadow-sm">
-          <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="name" className="text-sm font-sans font-medium text-foreground uppercase tracking-wider">
-                Ваши имена
-              </Label>
-              <Input
-                id="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="text-base h-12 rounded-xl border-border/60 bg-background font-sans"
-                placeholder="Ваши имена"
-              />
-            </div>
+        <form onSubmit={handleSubmit} className="space-y-8">
+          <div className="space-y-2">
+            <label htmlFor="name" className="text-xs font-sans font-medium text-muted-foreground uppercase tracking-[0.15em]">
+              {t ? "Ваши имена" : "Vaše jména"}
+            </label>
+            <input
+              id="name"
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full bg-transparent border-0 border-b border-border/60 px-0 py-3 text-base font-sans text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors"
+              placeholder={t ? "Ваши имена" : "Vaše jména"}
+            />
+          </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="guests" className="text-sm font-sans font-medium text-foreground uppercase tracking-wider">
-                Количество гостей
-              </Label>
-              <Input
-                id="guests"
-                type="number"
-                min="1"
-                max="10"
-                required
-                value={formData.guests}
-                onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                className="text-base h-12 rounded-xl border-border/60 bg-background font-sans"
-              />
-            </div>
+          <div className="space-y-2">
+            <label htmlFor="guests" className="text-xs font-sans font-medium text-muted-foreground uppercase tracking-[0.15em]">
+              {t ? "Количество гостей" : "Počet hostů"}
+            </label>
+            <input
+              id="guests"
+              type="number"
+              min="1"
+              max="10"
+              required
+              value={formData.guests}
+              onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+              className="w-full bg-transparent border-0 border-b border-border/60 px-0 py-3 text-base font-sans text-foreground focus:outline-none focus:border-primary transition-colors"
+            />
+          </div>
 
-            <div className="space-y-2">
-              <Label className="text-sm font-sans font-medium text-foreground uppercase tracking-wider">
-                {"Вы придёте?"}
-              </Label>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <button
-                  type="button"
-                  onClick={() => setFormData({ ...formData, attending: "yes" })}
-                  className={`flex-1 py-3.5 px-6 rounded-xl border transition-all text-sm font-sans font-medium ${
-                    formData.attending === "yes"
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border/60 bg-background text-foreground hover:border-primary/40"
-                  }`}
-                >
-                  С радостью приду
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setFormData({ ...formData, attending: "no" })}
-                  className={`flex-1 py-3.5 px-6 rounded-xl border transition-all text-sm font-sans font-medium ${
-                    formData.attending === "no"
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border/60 bg-background text-foreground hover:border-primary/40"
-                  }`}
-                >
-                  К сожалению, не смогу
-                </button>
-              </div>
+          <div className="space-y-3">
+            <label className="text-xs font-sans font-medium text-muted-foreground uppercase tracking-[0.15em]">
+              {t ? "Вы придёте?" : "Přijdete?"}
+            </label>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                type="button"
+                onClick={() => setFormData({ ...formData, attending: "yes" })}
+                className={`flex-1 py-3.5 px-6 border transition-all text-sm font-sans font-medium ${
+                  formData.attending === "yes"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border/60 bg-transparent text-foreground hover:border-primary/40"
+                }`}
+              >
+                {t ? "С радостью приду" : "S radostí přijdu"}
+              </button>
+              <button
+                type="button"
+                onClick={() => setFormData({ ...formData, attending: "no" })}
+                className={`flex-1 py-3.5 px-6 border transition-all text-sm font-sans font-medium ${
+                  formData.attending === "no"
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border/60 bg-transparent text-foreground hover:border-primary/40"
+                }`}
+              >
+                {t ? "К сожалению, не смогу" : "Bohužel se nemohu zúčastnit"}
+              </button>
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="comment" className="text-sm font-sans font-medium text-foreground uppercase tracking-wider">
-                Комментарий
-              </Label>
-              <textarea
-                id="comment"
-                value={formData.comment}
-                onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
-                className="flex min-h-[100px] w-full rounded-xl border border-border/60 bg-background px-4 py-3 text-base font-sans ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                placeholder="Укажите имена детей или другие пожелания"
-              />
-            </div>
+          <div className="space-y-2">
+            <label htmlFor="comment" className="text-xs font-sans font-medium text-muted-foreground uppercase tracking-[0.15em]">
+              {t ? "Комментарий" : "Komentář"}
+            </label>
+            <textarea
+              id="comment"
+              value={formData.comment}
+              onChange={(e) => setFormData({ ...formData, comment: e.target.value })}
+              className="w-full min-h-[100px] bg-transparent border-0 border-b border-border/60 px-0 py-3 text-base font-sans text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary transition-colors resize-none"
+              placeholder={t ? "Ваши пожелания" : "Vaše přání"}
+            />
+          </div>
 
-            <Button
-              type="submit"
-              className="w-full h-12 text-base font-sans font-medium rounded-xl bg-primary hover:bg-primary/90 transition-colors"
-              disabled={!formData.attending}
-            >
-              Отправить
-            </Button>
-          </form>
-        </div>
+          <button
+            type="submit"
+            disabled={!formData.attending}
+            className="w-full py-4 text-sm font-sans font-medium uppercase tracking-[0.15em] bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          >
+            {t ? "Отправить" : "Odeslat"}
+          </button>
+        </form>
       </div>
     </section>
   )

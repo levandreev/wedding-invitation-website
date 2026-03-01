@@ -1,32 +1,55 @@
+"use client"
+
 import { Gift, Heart } from "lucide-react"
+import { useAnimateOnScroll } from "@/hooks/use-animate-on-scroll"
+import { useLang } from "@/components/language-provider"
 
 export function Gifts() {
+  const { lang } = useLang()
+  const { ref, isVisible } = useAnimateOnScroll(0.1)
+  const t = lang === "ru"
+
   return (
-    <section className="py-16 md:py-28 px-4 md:px-6 bg-background">
-      <div className="max-w-3xl mx-auto">
+    <section id="gifts" className="py-24 md:py-40 px-4 md:px-6 bg-accent/20">
+      <div
+        ref={ref}
+        className={`max-w-3xl mx-auto transition-all duration-700 ease-out ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         <p className="text-xs md:text-sm font-sans uppercase tracking-[0.3em] text-muted-foreground text-center mb-3 md:mb-4">
-          От всего сердца
+          {t ? "От всего сердца" : "Od srdce"}
         </p>
-        <h2 className="text-3xl md:text-6xl font-serif font-light text-center text-foreground mb-12 md:mb-20 tracking-tight">
-          Подарки и пожелания
+        <h2 className="text-4xl md:text-7xl font-serif font-light text-center text-foreground mb-16 md:mb-24 tracking-tight">
+          {t ? "Подарки и пожелания" : "Dary a přání"}
         </h2>
 
-        <div className="space-y-4 md:space-y-6">
-          <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-10 flex items-start gap-4 md:gap-6">
-            <div className="rounded-full bg-primary/8 p-3.5 flex-shrink-0 mt-0.5">
-              <Gift className="w-5 h-5 text-primary" />
-            </div>
-            <p className="text-sm md:text-base text-foreground/80 leading-[1.8] font-sans font-light">
-              Мы будем благодарны за подарки в виде денежного вклада в нашу новую семью — так мы сможем осуществить наши планы и мечты.
+        <div className="space-y-5 md:space-y-8">
+          <div
+            className={`border border-border/50 bg-card p-8 md:p-12 flex items-start gap-5 md:gap-6 transition-all duration-600 ease-out ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: isVisible ? "200ms" : "0ms" }}
+          >
+            <Gift className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+            <p className="text-sm md:text-base text-foreground/80 leading-[1.9] font-sans font-light">
+              {t
+                ? "Мы будем благодарны за подарки в виде денежного вклада в нашу новую семью — так мы сможем осуществить наши планы и мечты."
+                : "Budeme vděční za dary v podobě finančního příspěvku do naší nové rodiny — tak budeme moci uskutečnit naše plány a sny."}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-10 flex items-start gap-4 md:gap-6">
-            <div className="rounded-full bg-primary/8 p-3.5 flex-shrink-0 mt-0.5">
-              <Heart className="w-5 h-5 text-primary" />
-            </div>
-            <p className="text-sm md:text-base text-foreground/80 leading-[1.8] font-sans font-light">
-              Если вы задумываетесь о букете для невесты, предлагаем заменить его бутылочкой хорошего вина или чая с запиской — так у нас появится коллекция тёплых воспоминаний на важные моменты жизни.
+          <div
+            className={`border border-border/50 bg-card p-8 md:p-12 flex items-start gap-5 md:gap-6 transition-all duration-600 ease-out ${
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+            style={{ transitionDelay: isVisible ? "350ms" : "0ms" }}
+          >
+            <Heart className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+            <p className="text-sm md:text-base text-foreground/80 leading-[1.9] font-sans font-light">
+              {t
+                ? "Если вы задумываетесь о букете для невесты, предлагаем заменить его бутылочкой хорошего вина или чая с запиской — так у нас появится коллекция тёплых воспоминаний на важные моменты жизни."
+                : "Pokud přemýšlíte o kytici pro nevěstu, navrhujeme ji nahradit lahvičkou dobrého vína nebo čaje s lístečkem — tak nám vznikne sbírka krásných vzpomínek na důležité životní okamžiky."}
             </p>
           </div>
         </div>
