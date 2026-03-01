@@ -49,7 +49,7 @@ export function Gifts() {
             <p className="text-sm md:text-base text-foreground/80 leading-[1.9] font-sans font-light">
               {t
                 ? "Если вы задумываетесь о букете для невесты, предлагаем заменить его бутылочкой хорошего вина или чая с запиской — так у нас появится коллекция тёплых воспоминаний на важные моменты жизни."
-                : "Pokud přemýšlíte o kytici pro nevěstu, navrhujeme ji nahradit lahvičkou dobrého vína nebo čaje s lístečkem — tak nám vznikne sbírka krásných vzpomínek na důležité životní okamžiky."}
+                : "Pokud přemýšlíte o kytici pro nevěstu, navrhujeme ji nahradit lahvičkou dobrého vína nebo čaje s nějakým vzkazem — tak nám vznikne sbírka krásných vzpomínek na důležité životní okamžiky."}
             </p>
           </div>
         </div>
