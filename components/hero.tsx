@@ -27,7 +27,7 @@ export function Hero() {
         }`}
       >
         <p className="text-xs md:text-sm font-sans uppercase tracking-[0.35em] text-white/70 mb-6 md:mb-8">
-          {lang === "ru" ? "Свадебное приглашение" : "Svatební pozvánka"}
+          {lang === "ru" ? "Свадебное приглашение" : "Svatební oznámení"}
         </p>
 
         <h1 className="text-6xl sm:text-7xl md:text-9xl font-serif font-light text-white mb-6 md:mb-8 tracking-tight">
