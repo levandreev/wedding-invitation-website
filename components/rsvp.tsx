@@ -43,8 +43,12 @@ export function RSVP() {
         </p>
         <p className="text-center text-muted-foreground mb-12 md:mb-16 text-xs md:text-sm leading-relaxed font-sans font-light max-w-lg mx-auto px-2">
           {t
-            ? "Мы будем рады видеть вас на любой части нашего праздника. Если у вас получится присоединиться только к фуршету или ваши планы изменятся, пожалуйста, дайте нам знать заранее — нам это очень поможет в организации."
-            : "Budeme rádi, když se k nám připojíte na kterékoli části oslavy. Pokud se vám podaří přijít jen na raut nebo se vaše plány změní, dejte nám prosím vědět předem — velmi nám to pomůže s organizací."}
+            ? "Мы будем рады видеть вас на любой части нашего праздника."
+            : "Budeme rádi, když se k nám připojíte na kterékoli části oslavy."}
+          <br />
+          {t
+            ? "Если у вас получится присоединиться только к фуршету или ваши планы изменятся, пожалуйста, дайте нам знать заранее — нам это очень поможет в организации."
+            : "Pokud se vám podaří přijít jen na raut nebo se vaše plány změní, dejte nám prosím vědět předem — velmi nám to pomůže s organizací."}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
