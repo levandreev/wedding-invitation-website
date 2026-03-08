@@ -1,10 +1,24 @@
 import { google } from "googleapis"
 import { NextResponse } from "next/server"
+import fs from "fs"
 import path from "path"
 
 function getAuth() {
+  const keyFilePath = path.join(process.cwd(), "google-credentials.json")
+
+  if (fs.existsSync(keyFilePath)) {
+    return new google.auth.GoogleAuth({
+      keyFile: keyFilePath,
+      scopes: ["https://www.googleapis.com/auth/spreadsheets"],
+    })
+  }
+
+  const credentials = JSON.parse(
+    Buffer.from(process.env.GOOGLE_SHEETS_CREDENTIALS_BASE64!, "base64").toString()
+  )
+
   return new google.auth.GoogleAuth({
-    keyFile: path.join(process.cwd(), "google-credentials.json"),
+    credentials,
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   })
 }
