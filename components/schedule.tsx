@@ -52,7 +52,7 @@ export function Schedule() {
         </p>
 
         <div className="relative">
-          <div className="absolute left-[18px] md:left-[100px] top-0 bottom-0 w-px bg-border/60" />
+          <div className="absolute left-[18px] md:left-[164px] top-0 bottom-0 w-px bg-border/60" />
 
           <div className="space-y-10 md:space-y-14">
             {events.map((event, index) => (
@@ -63,7 +63,7 @@ export function Schedule() {
                 }`}
                 style={{ transitionDelay: isVisible ? `${200 + index * 100}ms` : "0ms" }}
               >
-                <div className="hidden md:block w-[76px] flex-shrink-0 text-right">
+                <div className="hidden md:block w-[140px] flex-shrink-0 text-right">
                   <span className="text-xl md:text-2xl font-serif font-medium text-primary whitespace-nowrap">
                     {event.time}
                   </span>

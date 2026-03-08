@@ -10,6 +10,7 @@ import { Schedule } from "@/components/schedule"
 import { Gifts } from "@/components/gifts"
 import { RSVP } from "@/components/rsvp"
 import { Footer } from "@/components/footer"
+import { Toaster } from "@/components/ui/sonner"
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Gifts />
         <RSVP />
         <Footer />
+        <Toaster />
       </main>
     </LanguageProvider>
   )
