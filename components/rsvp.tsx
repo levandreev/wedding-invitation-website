@@ -64,9 +64,6 @@ export function RSVP() {
           {t ? "Подтверждение участия" : "Potvrzení účasti"}
         </h2>
 
-        <p className="text-center text-primary font-sans font-medium mb-3 md:mb-4 text-sm md:text-base">
-          {t ? "Просим подтвердить участие до 1 мая 2026" : "Prosíme o potvrzení účasti do 1. května 2026"}
-        </p>
         <p className="text-center text-muted-foreground mb-2 md:mb-3 text-xs md:text-sm leading-relaxed font-sans font-light max-w-2xl mx-auto px-2">
           {t
             ? "Мы будем рады видеть вас на любой части нашего праздника."
