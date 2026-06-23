@@ -9,13 +9,14 @@ function getTimeLeft() {
   const now = new Date()
   const diff = WEDDING_DATE.getTime() - now.getTime()
 
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, ended: true }
 
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
     seconds: Math.floor((diff / 1000) % 60),
+    ended: false,
   }
 }
 
@@ -34,6 +35,14 @@ export function Countdown() {
   }, [])
 
   const values = [time.days, time.hours, time.minutes, time.seconds]
+
+  if (time.ended) {
+    return (
+      <p className="text-2xl md:text-4xl font-serif font-light text-white text-center leading-snug">
+        {lang === "ru" ? "Сегодня тот самый день!" : "Dnes je ten den!"}
+      </p>
+    )
+  }
 
   return (
     <div className="flex items-center justify-center gap-3 md:gap-5">
