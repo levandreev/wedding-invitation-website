@@ -8,7 +8,6 @@ import { PhotoGallery } from "@/components/photo-gallery"
 import { Details } from "@/components/details"
 import { Schedule } from "@/components/schedule"
 import { Gifts } from "@/components/gifts"
-import { RSVP } from "@/components/rsvp"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/sonner"
 
@@ -23,7 +22,6 @@ export default function Home() {
         <Details />
         <Schedule />
         <Gifts />
-        <RSVP />
         <Footer />
         <Toaster />
       </main>

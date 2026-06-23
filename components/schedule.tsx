@@ -16,12 +16,17 @@ export function Schedule() {
     },
     {
       time: "15:00 - 16:00",
-      title: t ? "Сбор гостей на фуршет и празднование" : "Příchod hostů na raut a oslavu",
-      description: t ? "Точное время будет уточнено позже" : "Přesný čas bude upřesněn později",
+      title: t ? "Сбор гостей" : "Příchod hostů",
+      description: "",
     },
     {
       time: "16:00",
       title: t ? "Начало программы" : "Začátek programu",
+      description: "",
+    },
+    {
+      time: "17:30",
+      title: t ? "Подача ужина" : "Podávání večeře",
       description: "",
     },
     {

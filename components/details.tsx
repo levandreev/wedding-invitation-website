@@ -117,9 +117,7 @@ export function Details() {
                       {t ? "Время" : "Čas"}
                     </p>
                     <p className="text-base text-foreground">
-                      {t
-                        ? "Ориентировочно 15:00-16:00, будет уточнено немного позже"
-                        : "Čas příchodu hostů bude upřesněn později"}
+                      {t ? "Сбор гостей 15:00–16:00" : "Příchod hostů 15:00–16:00"}
                     </p>
                   </div>
                 </div>

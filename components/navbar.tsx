@@ -10,14 +10,12 @@ const NAV_LINKS = {
     { href: "#photos", label: "Фото" },
     { href: "#details", label: "Церемония" },
     { href: "#schedule", label: "Расписание" },
-    { href: "#rsvp", label: "RSVP" },
   ],
   cs: [
     { href: "#our-story", label: "Náš příběh" },
     { href: "#photos", label: "Foto" },
     { href: "#details", label: "Obřad" },
     { href: "#schedule", label: "Program" },
-    { href: "#rsvp", label: "RSVP" },
   ],
 }
 
