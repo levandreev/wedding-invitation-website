@@ -17,7 +17,7 @@ export function Schedule() {
     {
       time: "15:00 - 16:00",
       title: t ? "Сбор гостей" : "Příchod hostů",
-      description: "",
+      description: "Highlight",
     },
     {
       time: "16:00",
@@ -49,12 +49,9 @@ export function Schedule() {
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <h2 className="text-4xl md:text-7xl font-serif font-light text-center text-foreground mb-3 md:mb-4 tracking-tight">
+        <h2 className="text-4xl md:text-7xl font-serif font-light text-center text-foreground mb-16 md:mb-24 tracking-tight">
           {t ? "Расписание дня" : "Program dne"}
         </h2>
-        <p className="text-center text-muted-foreground text-xs md:text-sm font-sans mb-16 md:mb-24">
-          {t ? "(будет обновляться)" : "(bude aktualizováno)"}
-        </p>
 
         <div className="relative">
           <div className="absolute left-[18px] md:left-[164px] top-0 bottom-0 w-px bg-border/60" />
